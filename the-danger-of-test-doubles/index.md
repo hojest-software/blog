@@ -37,7 +37,7 @@ the hello method and always returns 'Hey!'.
         name: 'Lucas',
         friend: FriendDouble.new)
 
-      assert('Hey!', person.hello)
+      assert_equal('Hey!', person.hello)
     end
   end
 ```
@@ -63,7 +63,7 @@ One way to raise the role's visibility is to assert that _Friend_ plays it.
         name: 'Lucas',
         friend: FriendDouble.new)
 
-      assert('Hey!', person.hello)
+      assert_equal('Hey!', person.hello)
     end
 
     def test_implements_the_say_hello_interface
@@ -95,7 +95,7 @@ To fix the first issue you can test the role in a separete module and include it
         name: 'Lucas',
         friend: FriendDouble.new)
 
-      assert('Hey!', person.hello)
+      assert_equal('Hey!', person.hello)
     end
   end
 ```
@@ -117,7 +117,7 @@ And finally, to prevent the Double to became obsolete, you can use the same test
         name: 'Lucas',
         friend: FriendDouble.new)
 
-      assert('Hey!', person.hello)
+      assert_equal('Hey!', person.hello)
     end
   end
 ```
