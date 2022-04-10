@@ -43,7 +43,7 @@ the hello method and always returns 'Hey!'.
 ```
 
 So far so good. You isolated the _Person_ test _Friend_ and the test works as expected.
-But what happen if _Friend_ class changes his public interface
+But what happen if _Friend_ class changes its public interface
 and now instead of responding to _hello_ responds to _say_hi_?
 If you run the test it will continue to pass though the application is definitely broken!
 
