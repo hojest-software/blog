@@ -2,14 +2,14 @@
 
 Lucas Chizzoli - April 12, 2022 - Ruby, Inherit, Hook Messages
 
-Image the next scenario. You have a _subclass_ that inherits its _superclass_ behavior.
-The _superclass_ has an _initialize_ method that initializes some properties. Those properties then are
-being accessed by the _subclasses_ by a method.
+Imagine the next scenario. You have a _subclass_ that inherits its _superclass_ behavior.
+The _superclass_ has an _initialize_ method that initializes some properties.
+Those properties then are being accessed by the _subclasses_ by a method.
 
 Lets see an example
 
 ```ruby
-  class Viecle
+  class Vehicle
     attr_reader :engine, :doors
 
     def initialize(**opts)
@@ -33,7 +33,7 @@ Lets see an example
 You proceed to create a _subclass_; you inherit from the _superclass_ and implement the corresponding methods.
 
 ```ruby
-  class Car < Viecle
+  class Car < Vehicle
     attr_reader :tires_count
 
     def initialize(**opts)
@@ -60,7 +60,7 @@ The next example illustrates the trap. If someone creates a subclass and forgets
 we encounter this problem:
 
 ```ruby
-  class Bike < Viecle
+  class Bike < Vehicle
     attr_reader :tires_count
 
     def initialize(**opts)
@@ -87,7 +87,7 @@ superclasses can instead send `hook messages`. These messages will allow the sub
 Lets see an example:
 
 ```ruby
-  class Viecle
+  class Vehicle
     attr_reader :engine, :doors
 
     def initialize(**opts)
@@ -118,7 +118,7 @@ Lets see an example:
     end
   end
 
-  class Car < Viecle
+  class Car < Vehicle
     attr_reader :tires_count
 
     def post_initialize(opts)
@@ -138,5 +138,5 @@ Lets see an example:
 
 ## Conclusion
 
-This solution allows `Car` to know less about `Viecle` and remove its dependencies.
+This solution allows `Car` to know less about `Vehicle` and remove its dependencies.
 New subclasses need only to implement hook methods.
